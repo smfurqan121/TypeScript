@@ -3,7 +3,7 @@ console.log("Hello World");
 
 //question-2
 let person: string = "sir zia";
-console.log("Hello " + person + " would you like to learn some Python today?");
+console.log("Hello " , person , " would you like to learn some Python today?");
 
 //question-3
 let person2: string = "syed Muhammad furqan"
@@ -651,7 +651,30 @@ make_great(magicians);
 show_magicians(magicians);
 
 //question-43
-console.log('skipped Dont understand');
+// Define the function to show magician names
+function dis_magicians(magicians: string[]): void {
+    magicians.forEach(magician => console.log(magician));
+}
+
+
+function dis_great(magicians: string[]): string[] {
+    return magicians.map(magician => `${magician} the Great`);
+}
+
+// Original array of magicians
+ magicians = ["David Copperfield", "Penn & Teller", "Houdini"];
+
+// Make a copy of the magicians array 
+const greatMagicians = dis_great([...magicians]);
+
+// Show the original magicians
+console.log("Original magicians:");
+dis_magicians(magicians);
+
+// Show the great magicians
+console.log("\nGreat magicians:");
+dis_magicians(greatMagicians);
+
 
 //question-44
 function makeSandwich(...items: string[]): void {
@@ -668,4 +691,23 @@ makeSandwich("Turkey", "Swiss cheese");
 makeSandwich("Peanut butter", "Jelly");
 
 //question-45
-console.log("skipped")
+// Define a function to store information about a car
+function storeCarInfo(manufacturer: string, modelName: string, ...extras: [string, any][]): object {
+    const carInfo: any = {
+        manufacturer: manufacturer,
+        modelName: modelName
+    };
+
+    // Add any additional information provided as keyword arguments
+    extras.forEach(([key, value]) => {
+        carInfo[key] = value;
+    });
+
+    return carInfo;
+}
+
+// Call the function with required information and additional key-value pairs
+const car2 = storeCarInfo("Toyota", "Corolla", ["color", "blue"], ["year", 2023]);
+
+// Print the object returned to ensure all information was stored correctly
+console.log(car2);
